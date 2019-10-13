@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { HistoryProvider } from './context/history';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Pages
+import SearchTwitter from './components/SearchTwitter';
+
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
+
+class App extends React.Component {
+
+	render() {
+		return (
+			<HistoryProvider value={{history}}>
+				<Router history={history}>
+					<Switch>
+						<Route exact path="/key=:searchValue" component={SearchTwitter} />
+						<Redirect exact from="/" to="/key=adobe" />
+					</Switch>
+				</Router>
+			</HistoryProvider>
+		);
+	}
 }
 
 export default App;

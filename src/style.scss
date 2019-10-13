@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.profilePic {
+	padding: 10px;
+	border-radius: 50%;
+}
+.tweetLocation {
+	font-size: 1rem;
+	color: $greyLightColor;
+}
+.reloadIcon {
+	margin: 2rem;
+}
+.rightSide {
+	text-align: right;
+	float: right;
+}
+.searchTwitter {
+	margin: 30px;
+	color: $blueColor;
+}
