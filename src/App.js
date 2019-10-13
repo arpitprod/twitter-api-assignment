@@ -15,8 +15,8 @@ class App extends React.Component {
 			<HistoryProvider value={{history}}>
 				<Router history={history}>
 					<Switch>
-						<Route exact path="/key=:searchValue" component={SearchTwitter} />
-						<Redirect exact from="/" to="/key=adobe" />
+						<Route exact path="/twitter-api-assignment/key=:searchValue" component={SearchTwitter} />
+						<Redirect exact from="/twitter-api-assignment" to="/twitter-api-assignment/key=adobe" />
 					</Switch>
 				</Router>
 			</HistoryProvider>
