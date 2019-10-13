@@ -21,7 +21,7 @@ class App extends React.Component {
 	}
 
 	callApi = (endPoint = 'adobe') => {
-		this.props.history.push(`/key=${endPoint}`);
+		this.props.history.push(`/twitter-api-assignment/key=${endPoint}`);
 		this.setState({
 			reload: true
 		});
