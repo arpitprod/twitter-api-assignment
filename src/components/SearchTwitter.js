@@ -108,7 +108,7 @@ class App extends React.Component {
 											<Media>
 												<LazyLoad height={200}>
 													<Media left>
-														<Media object src={obj.user.profile_image_url} alt="Profile Pic" className='profilePic' />
+														<Media object src={obj.user.profile_image_url_https} alt="Profile Pic" className='profilePic' />
 													</Media>
 												</LazyLoad>
 												<LazyLoad height={100} offset={100}>
