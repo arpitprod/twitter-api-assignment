@@ -13,10 +13,10 @@ class App extends React.Component {
 	render() {
 		return (
 			<HistoryProvider value={{history}}>
-				<Router history={history}>
+				<Router history={history} basename={process.env.PUBLIC_URL}>
 					<Switch>
-						<Route exact path="/twitter-api-assignment/key=:searchValue" component={SearchTwitter} />
-						<Redirect exact from="/twitter-api-assignment" to="/twitter-api-assignment/key=adobe" />
+						<Route exact path="/key=:searchValue" component={SearchTwitter} />
+						<Redirect exact from="/" to="/key=adobe" />
 					</Switch>
 				</Router>
 			</HistoryProvider>

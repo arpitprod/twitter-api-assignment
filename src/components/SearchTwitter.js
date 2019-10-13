@@ -21,7 +21,7 @@ class App extends React.Component {
 	}
 
 	callApi = (endPoint = 'adobe') => {
-		this.props.history.push(`/twitter-api-assignment/key=${endPoint}`);
+		this.props.history.push(`/key=${endPoint}`);
 		this.setState({
 			reload: true
 		});
@@ -102,29 +102,33 @@ class App extends React.Component {
 				<Row>
 					{!reload ?
 					data.length > 0 ?
-						<Col sm="12" lg="6">
-							{data.map((single, i) => (
-								<Card body key={i} className='shadow mb-3'>
-									<Media>
-										<LazyLoad height={200}>
-											<Media left>
-												<Media object src={single.user.profile_image_url} alt="Profile Pic" className='profilePic' />
+						<Col sm="12">
+							<Row>
+								{data.map((obj, i) => (
+									<Col sm="12" lg="6">
+										<Card body key={i} className='shadow mb-3'>
+											<Media>
+												<LazyLoad height={200}>
+													<Media left>
+														<Media object src={obj.user.profile_image_url} alt="Profile Pic" className='profilePic' />
+													</Media>
+												</LazyLoad>
+												<LazyLoad height={100} offset={100}>
+													<Media body>
+														<Media heading>
+															{`${obj.user.name}`}
+															<span className='tweetLocation'>
+																{` @${obj.user.screen_name} ${obj.user.created_at}`}
+															</span>
+														</Media>
+														{obj.user.description}
+													</Media>
+												</LazyLoad>
 											</Media>
-										</LazyLoad>
-      							<LazyLoad height={100} offset={100}>
-											<Media body>
-												<Media heading>
-													{`${single.user.name}`}
-													<span className='tweetLocation'>
-														{` @${single.user.screen_name} ${single.user.created_at}`}
-													</span>
-												</Media>
-												{single.user.description}
-											</Media>
-										</LazyLoad>
-									</Media>
-								</Card>
-							))}
+										</Card>
+									</Col>
+								))}
+							</Row>
 						</Col>
 						:
 						<Col sm="12">
@@ -137,7 +141,7 @@ class App extends React.Component {
 							</Card>
 						</Col>
 					:
-					<Col sm={{ size: 2, offset: 5 }}>
+					<Col sm={{ offset: 5 }}>
 						<span>
 							<i className="fa fa-refresh fa-spin fa-3x fa-fw reloadIcon" aria-hidden="true"></i>
 						</span>
