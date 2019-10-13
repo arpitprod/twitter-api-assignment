@@ -1,8 +1,7 @@
 import React from 'react';
 import apiCaller from '../utils/apiCaller';
 import {
-  Card, CardImg, CardText, CardBody, Form, FormGroup, Input,
-  CardTitle, CardSubtitle, Button, Row, Col, Media
+  Card, Form, FormGroup, Input, Button, Row, Col, Media
 } from 'reactstrap';
 import LazyLoad from 'react-lazyload';
 
@@ -27,7 +26,6 @@ class App extends React.Component {
 		});
 		apiCaller(endPoint)
 		.then(data => {
-			console.log('data - ', data);
 			this.setState({
 				data: data.statuses,
 				reload: false,
@@ -105,8 +103,8 @@ class App extends React.Component {
 						<Col sm="12">
 							<Row>
 								{data.map((obj, i) => (
-									<Col sm="12" lg="6">
-										<Card body key={i} className='shadow mb-3'>
+									<Col sm="12" lg="6" key={i}>
+										<Card body className='shadow mb-3'>
 											<Media>
 												<LazyLoad height={200}>
 													<Media left>
